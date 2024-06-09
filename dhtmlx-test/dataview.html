@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHTMLX DataView Example</title>
+    <link rel="stylesheet" href="https://cdn.dhtmlx.com/suite/edge/suite.css">
+    <style>
+        .item-card {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .item-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .item-title {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .item-description {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dataview" style="width: 100%; height: 400px;"></div>
+
+    <script src="https://cdn.dhtmlx.com/suite/edge/suite.js"></script>
+    <script>
+        const dataview = new dhx.DataView("dataview", {
+            template: function (item) {
+                return `<div class="item-card">
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="item-title">${item.title}</div>
+                    <div class="item-description">${item.description}</div>
+                </div>`;
+            },
+            itemHeight: 120,
+            itemWidth: 150
+        });
+        dataview.data.parse([
+            { id: 1, image: "path/to/image1.jpg", title: "Item 1", description: "Description 1" },
+            { id: 2, image: "path/to/image2.jpg", title: "Item 2", description: "Description 2" }
+        ]);
+    </script>
+</body>
+
+</html>

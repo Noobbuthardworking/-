@@ -1,42 +1,58 @@
-/* 样式 */
-.chat-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    cursor: pointer;
+    background-color: #333;
+    padding: 1em;
 }
 
-.chat-popup {
-    display: none;
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+nav .logo img {
+    height: 40px;
 }
 
-.chat-popup textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    margin-bottom: 10px;
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-.chat-popup button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header {
+    text-align: center;
+    padding: 2em 0;
+}
+
+section.course-content {
+    padding: 2em;
+}
+
+.lesson {
+    margin-bottom: 2em;
+}
+
+.lesson h2 {
+    margin-bottom: 1em;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
 }

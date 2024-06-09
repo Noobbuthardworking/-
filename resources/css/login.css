@@ -1,0 +1,53 @@
+/* 设置整个页面的背景颜色和字体 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    /* 浅灰色背景 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 设置登录容器的样式 */
+.login-container {
+    background-color: #ffffff;
+    /* 白色背景 */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* 调整输入框和按钮的样式 */
+.login-container input,
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-container button {
+    background-color: #4CAF50;
+    /* 绿色背景 */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+    /* 深绿色 */
+}
+
+/* 错误消息样式 */
+.error {
+    color: #FF0000;
+    /* 红色字体 */
+    font-size: 14px;
+    text-align: center;
+}

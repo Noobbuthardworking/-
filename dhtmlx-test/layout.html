@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHTMLX Layout Example</title>
+    <link rel="stylesheet" href="https://cdn.dhtmlx.com/suite/edge/suite.css">
+</head>
+
+<body>
+    <div id="layout" style="width: 100%; height: 600px;"></div>
+
+    <script src="https://cdn.dhtmlx.com/suite/edge/suite.js"></script>
+    <script>
+        const layout = new dhx.Layout("layout", {
+            rows: [
+                {
+                    id: "header",
+                    height: "content",
+                    html: "<h1>Header</h1>"
+                },
+                {
+                    cols: [
+                        { id: "sidebar", width: "250px", html: "<p>Sidebar</p>" },
+                        { id: "main", html: "<p>Main content</p>" }
+                    ]
+                }
+            ]
+        });
+    </script>
+</body>
+
+</html>

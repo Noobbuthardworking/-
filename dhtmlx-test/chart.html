@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHTMLX Chart Example</title>
+    <link rel="stylesheet" href="https://cdn.dhtmlx.com/suite/edge/suite.css">
+</head>
+
+<body>
+    <div id="chart" style="width: 600px; height: 400px;"></div>
+
+    <script src="https://cdn.dhtmlx.com/suite/edge/suite.js"></script>
+    <script>
+        const chart = new dhx.Chart("chart", {
+            type: "bar",
+            scales: {
+                bottom: { text: "Category" },
+                left: { maxTicks: 10 }
+            },
+            series: [
+                {
+                    id: "quantity",
+                    value: "quantity",
+                    color: "#A9A9A9",
+                    barWidth: 35,
+                    gradient: "linear"
+                }
+            ]
+        });
+        chart.data.parse([
+            { id: 1, category: "Item 1", quantity: 10 },
+            { id: 2, category: "Item 2", quantity: 20 }
+        ]);
+    </script>
+</body>
+
+</html>

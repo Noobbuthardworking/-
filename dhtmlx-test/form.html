@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHTMLX Form Example</title>
+    <link rel="stylesheet" href="https://cdn.dhtmlx.com/suite/edge/suite.css">
+</head>
+
+<body>
+    <div id="form" style="width: 400px; margin: 0 auto;"></div>
+
+    <script src="https://cdn.dhtmlx.com/suite/edge/suite.js"></script>
+    <script>
+        const form = new dhx.Form("form", {
+            rows: [
+                { type: "input", label: "Name", name: "name" },
+                { type: "input", label: "Email", name: "email" },
+                { type: "textarea", label: "Message", name: "message" },
+                { type: "button", text: "Submit", size: "medium", view: "flat", submit: true }
+            ]
+        });
+        form.events.on("Submit", function (values) {
+            console.log("Form submitted:", values);
+            alert("Form submitted!");
+        });
+    </script>
+</body>
+
+</html>
