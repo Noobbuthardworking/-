@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;  // 确保导入 Course 模型
+use App\Models\Course;
+use App\Models\Lesson;  // 确保导入 Lesson 模型
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -10,16 +11,15 @@ use Illuminate\Support\Facades\Session;
 class CourseController extends Controller
 {
     public function showIntroduction()
-{
-    $user = Session::get('user');
-    if (!$user) {
-        return redirect('login'); // 确保用户已登录
+    {
+        $user = Session::get('user');
+        if (!$user) {
+            return redirect('login'); // 确保用户已登录
+        }
+
+        $courses = DB::table('courses')->where('user_id', $user->id)->get();
+        return view('introduction', ['courses' => $courses]);
     }
-
-    $courses = DB::table('courses')->where('user_id', $user->id)->get();
-    return view('introduction', ['courses' => $courses]);
-}
-
 
     public function showTeachingProcess()
     {
@@ -34,7 +34,7 @@ class CourseController extends Controller
             'image' => 'required|image|max:2048', // 限制文件为图片且最大2MB
         ]);
 
-        $course = Course::find($id);
+        $course = Course::findOrFail($id);
         $path = $request->file('image')->store('images', 'public');
 
         $course->image_url = 'storage/' . $path;
@@ -43,16 +43,15 @@ class CourseController extends Controller
         return back()->with('success', 'Image updated successfully!');
     }
 
-    public function updateCourse(Request $request, $id)
-{
-    $course = Course::findOrFail($id);  // 确保找到对应的课程，如果没有找到会抛出404异常
-    $field = $request->input('field');  // 从请求中获取字段名
-    $value = $request->input('value');  // 从请求中获取新的值
+    public function updateLesson(Request $request, $id)
+    {
+        $lesson = Lesson::findOrFail($id); // 确保找到对应的课时，如果没有找到会抛出404异常
+        $field = $request->input('field'); // 从请求中获取字段名
+        $value = $request->input('value'); // 从请求中获取新的值
 
-    $course->$field = $value;  // 更新课程模型的相应字段
-    $course->save();           // 保存更改到数据库
+        $lesson->$field = $value; // 更新课时模型的相应字段
+        $lesson->save(); // 保存更改到数据库
 
-    return response()->json(['success' => 'Course updated successfully']);  // 返回成功响应
-}
-
+        return response()->json(['success' => 'Lesson updated successfully']); // 返回成功响应
+    }
 }

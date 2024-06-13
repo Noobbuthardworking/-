@@ -31,3 +31,4 @@ Route::get('/chat', function () {
 
 // 聊天 API 路由
 Route::post('/api/chat', [ChatController::class, 'chat']);
+Route::post('/update-lesson/{id}', [CourseController::class, 'updateLesson'])->name('update-lesson');
